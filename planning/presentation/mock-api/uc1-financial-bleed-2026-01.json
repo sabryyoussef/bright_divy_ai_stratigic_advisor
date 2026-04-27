@@ -1,0 +1,17 @@
+{
+  "status": "ok",
+  "service": "analytics",
+  "period": "2026-01",
+  "revenue_qar": 50000.0,
+  "expense_qar": 65500.0,
+  "net_qar": -15500.0,
+  "bleed_detected": true,
+  "summary_key": "NEGATIVE_NET",
+  "drivers": [
+    { "category": "payroll", "impact_qar": -62000.0 },
+    { "category": "marketing", "impact_qar": -3500.0 }
+  ],
+  "database_url": "postgresql://warehouse:***@warehouse:5432/warehouse",
+  "timestamp_utc": "2026-04-27T12:00:00.000000+00:00",
+  "_presentation_note": "Derived from csv_finance_sample rows dated 2026-01; deterministic SQL in FastAPI."
+}

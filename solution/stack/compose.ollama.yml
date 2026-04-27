@@ -1,0 +1,19 @@
+# OPTIONAL — adds Ollama to the same compose project (large download: multi‑GB).
+#
+#   cd d:\bright_info\solution
+#   docker compose -f docker-compose.yml -f stack/compose.stack.yml -f stack/compose.ollama.yml up -d
+#
+# Prefer Windows native Ollama for laptops: https://ollama.com/download
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: bright_ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+
+volumes:
+  ollama_data:

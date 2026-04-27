@@ -1,0 +1,8 @@
+﻿txn_date,account_type,amount_qar,category,source_system
+2026-01-15,revenue,50000.00,lessons,csv_finance_sample
+2026-01-20,expense,62000.00,payroll,csv_finance_sample
+2026-01-22,expense,3500.00,marketing,csv_finance_sample
+2026-02-03,revenue,55000.00,lessons,csv_finance_sample
+2026-02-09,expense,40000.00,payroll,csv_finance_sample
+2026-02-12,expense,5000.00,fuel,csv_finance_sample
+2026-02-20,revenue,8000.00,add_on_services,csv_finance_sample

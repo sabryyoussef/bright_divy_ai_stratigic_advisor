@@ -1,0 +1,91 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Bright Analytics Financial Bleed API",
+    "version": "1.0.0",
+    "description": "Deterministic KPI endpoint for Dify tool calling."
+  },
+  "servers": [
+    { "url": "http://host.docker.internal:18001" }
+  ],
+  "paths": {
+    "/analytics/financial-bleed": {
+      "post": {
+        "operationId": "getFinancialBleed",
+        "summary": "Get financial bleed KPI by period",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["period"],
+                "properties": {
+                  "period": {
+                    "type": "string",
+                    "description": "Period in YYYY-MM format",
+                    "example": "2026-01",
+                    "pattern": "^\\d{4}-\\d{2}$"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Deterministic KPI JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string", "example": "ok" },
+                    "period": { "type": "string", "example": "2026-01" },
+                    "revenue_qar": { "type": "number", "example": 50000 },
+                    "expense_qar": { "type": "number", "example": 65500 },
+                    "net_qar": { "type": "number", "example": -15500 },
+                    "bleed_detected": { "type": "boolean", "example": true },
+                    "summary_key": { "type": "string", "example": "NEGATIVE_NET" },
+                    "drivers": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "category": { "type": "string", "example": "payroll" },
+                          "impact_qar": { "type": "number", "example": -62000 }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health/db": {
+      "get": {
+        "operationId": "healthDb",
+        "summary": "Database health probe",
+        "responses": {
+          "200": {
+            "description": "DB health",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "db_connected": { "type": "boolean", "example": true },
+                    "fact_transactions_rows": { "type": "integer", "example": 7 }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

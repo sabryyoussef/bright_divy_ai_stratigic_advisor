@@ -1,0 +1,10 @@
+{
+  "status": "ok",
+  "service": "analytics",
+  "db_connected": true,
+  "database_url": "postgresql://warehouse:***@127.0.0.1:55432/warehouse",
+  "database": "warehouse",
+  "fact_transactions_rows": 7,
+  "timestamp_utc": "2026-04-27T12:00:00.000000+00:00",
+  "_presentation_note": "GET /health/db — proves warehouse reachable and pilot batch loaded (7 rows from financial_sample.csv)."
+}

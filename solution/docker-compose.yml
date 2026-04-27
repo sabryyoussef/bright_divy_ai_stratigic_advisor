@@ -1,0 +1,24 @@
+services:
+  warehouse:
+    image: postgres:16-alpine
+    container_name: bright_warehouse
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: warehouse
+      POSTGRES_PASSWORD: warehouse_dev_change_me
+      POSTGRES_DB: warehouse
+    ports:
+      # High port avoids clashes with a local Windows Postgres (often 5432/5433/5434).
+      - "55432:5432"
+    volumes:
+      - warehouse_data:/var/lib/postgresql/data
+      - ./sql:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U warehouse -d warehouse"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 15s
+
+volumes:
+  warehouse_data:

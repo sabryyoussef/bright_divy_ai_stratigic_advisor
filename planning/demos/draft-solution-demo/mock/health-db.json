@@ -1,0 +1,9 @@
+{
+  "status": "ok",
+  "service": "analytics",
+  "db_connected": true,
+  "database_url": "postgresql://warehouse:***@127.0.0.1:55432/warehouse",
+  "database": "warehouse",
+  "fact_transactions_rows": 7,
+  "note": "MOCK: row count matches financial_sample.csv load."
+}

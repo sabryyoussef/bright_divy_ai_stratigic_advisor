@@ -1,0 +1,16 @@
+{
+  "status": "ok",
+  "service": "analytics",
+  "period": "2026-01",
+  "revenue_qar": 50000.0,
+  "expense_qar": 65500.0,
+  "net_qar": -15500.0,
+  "bleed_detected": true,
+  "summary_key": "NEGATIVE_NET",
+  "drivers": [
+    { "category": "payroll", "impact_qar": -62000.0 },
+    { "category": "marketing", "impact_qar": -3500.0 }
+  ],
+  "database_url": "postgresql://warehouse:***@warehouse:5432/warehouse",
+  "note": "MOCK: matches sample_data pipeline; numbers are fixed for presentation."
+}

@@ -1,0 +1,24 @@
+# Merge with root compose (warehouse + analytics only — fast startup).
+#
+#   cd d:\bright_info\solution
+#   docker compose -f docker-compose.yml -f stack/compose.stack.yml up -d --build --wait
+#
+# Optional Ollama (large image download): see `stack/compose.ollama.yml`.
+
+services:
+  analytics:
+    build:
+      # Must be `./analytics` (NOT `../analytics`) when the project directory is `solution/`.
+      context: ./analytics
+      dockerfile: Dockerfile
+    container_name: bright_analytics
+    restart: unless-stopped
+    ports:
+      # Host 18001 avoids Windows shadowing: a local process on 127.0.0.1:8001 can
+      # take precedence over Docker's 0.0.0.0:8001 for curl/Invoke-RestMethod.
+      - "18001:8001"
+    environment:
+      DATABASE_URL: postgresql://warehouse:warehouse_dev_change_me@warehouse:5432/warehouse
+    depends_on:
+      warehouse:
+        condition: service_healthy
