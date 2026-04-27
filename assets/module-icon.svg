@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Bright Info  AI Strategic Advisor</title>
+  <desc id="desc">Abstract trend and dialogue motif for analytics advisor module.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#134e4a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#5eead4"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <!-- Trend line (deterministic KPIs) -->
+  <path d="M 96 328 L 176 272 L 256 304 L 336 184 L 416 224" fill="none" stroke="url(#accent)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Advisor / dialogue arc -->
+  <path d="M 320 360 Q 380 320 400 260 Q 412 220 388 188 Q 360 152 312 168 Q 268 182 252 228" fill="none" stroke="#eab308" stroke-width="14" stroke-linecap="round" opacity="0.95"/>
+  <circle cx="416" cy="224" r="18" fill="#fbbf24"/>
+  <circle cx="96" cy="328" r="14" fill="#5eead4"/>
+</svg>
